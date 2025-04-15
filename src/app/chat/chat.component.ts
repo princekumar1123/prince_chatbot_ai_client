@@ -26,7 +26,9 @@ export class ChatComponent implements OnInit {
     this.chatHistory.push({ type: 'user', text: message });
     this.userInput = '';
 
-    this.http.post<{ reply: string }>('http://localhost:3000/chat', { prompt: message })
+    // this.http.post<{ reply: string }>('http://localhost:3000/chat', { prompt: message })
+    this.http.post<{ reply: string }>('https://prince-chatbot-ai.onrender.com/chat', { prompt: message })
+
       .subscribe(
         res => {
           this.chatHistory.push({ type: 'bot', text: res.reply });
