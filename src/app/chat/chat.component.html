@@ -1,0 +1,16 @@
+<div class="chat-container">
+    <div class="header">PRINCE Chatbot AI</div>
+
+    <div class="messages" #scrollMe>
+        <div *ngFor="let msg of chatHistory" [ngClass]="msg.type">
+            <markdown [data]="msg.text"></markdown>
+
+            <!-- <div class="msg">{{ msg.text }}</div> -->
+        </div>
+    </div>
+
+    <div class="input-area">
+        <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Ask something..." />
+        <button (click)="sendMessage()">Send</button>
+    </div>
+</div>
