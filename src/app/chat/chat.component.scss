@@ -302,19 +302,23 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     position: relative;
     width: 95vw; // default
+
     @media (min-width: 768px) {
         width: 80vw;
     }
+
     @media (min-width: 1024px) {
         width: 60vw;
     }
+
     .header {
         background: white;
         // color: #3a5fc0;
         // color: #5c6ac4;
-color: rgb(92, 92, 197);
+        // color: rgb(92, 92, 197);
         // color: #38bdf8;
         // color: #ff005c;
+        color: #4D6BFE;
         font-size: 24px;
         font-weight: bold;
         padding: 16px;
