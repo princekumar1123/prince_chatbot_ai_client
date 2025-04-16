@@ -1,5 +1,6 @@
 .chat-container {
-    max-width: 800px;
+    width: 85vw;
+    // max-width: 800px;
     margin: auto;
     height: 90vh;
     display: flex;
@@ -54,11 +55,13 @@
     }
 
     .input-area {
+        max-width: 940px;
         display: flex;
-        padding: 1rem;
+        // padding: 1rem;
         background: #ffffff;
 
         input {
+            width: 60vw;
             flex: 1;
             padding: 10px;
             border: none;
@@ -72,8 +75,8 @@
             background: #000000;
             color: #ffffff;
             border: none;
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             // padding: 10px 16px;
             border-radius: 50%;
             display: flex;
@@ -84,7 +87,7 @@
 }
 
 .mat-icon {
-    font-size: 26px;
+    font-size: 24px;
 }
 
 // ::ng-deep p{
@@ -167,20 +170,20 @@
     }
 }
 
-.mic-button {
-    background: #38bdf8;
-    color: white;
-    border: none;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    margin-right: 8px;
-    transition: background 0.3s ease;
+// .mic-button {
+//     background: #38bdf8;
+//     color: white;
+//     border: none;
+//     width: 44px;
+//     height: 44px;
+//     border-radius: 50%;
+//     margin-right: 8px;
+//     transition: background 0.3s ease;
 
-    &:hover {
-        background: #0ea5e9;
-    }
-}
+//     &:hover {
+//         background: #0ea5e9;
+//     }
+// }
 
 
 .chat-container {
@@ -323,15 +326,15 @@
     }
 }
 
-.mic-button {
-    position: absolute;
-    bottom: 80px;
-    right: 20px;
-    background: #ff4081;
-    color: white;
-    border-radius: 50%;
-    padding: 12px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
+// .mic-button {
+//     position: absolute;
+//     bottom: 80px;
+//     right: 20px;
+//     background: #ff4081;
+//     color: white;
+//     border-radius: 50%;
+//     padding: 12px;
+//     border: none;
+//     cursor: pointer;
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+// }

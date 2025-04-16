@@ -54,7 +54,7 @@
         Prince ChatbotAI
 
         <!-- <button (click)="toggleSpeakReplies()" class="toggle-audio">
-        {{ speakReplies ? '🔊 Voice Reply ON' : '🔇 Voice Reply OFF' }}
+        {{ speakReplies ? 'Voice Reply ON' : ' Voice Reply OFF' }}
       </button>
       <button type="button" (click)="stopSpeaking()" class="stop-voice-button">
         <mat-icon>volume_off</mat-icon>
@@ -69,20 +69,23 @@
         </div>
     </div>
 
-    <div *ngIf="isListening" class="listening-indicator">
+    <!-- <div *ngIf="isListening" class="listening-indicator">
         <mat-icon class="pulse-icon">graphic_eq</mat-icon>
         <span>Listening...</span>
+    </div> -->
+
+
+    <div class="d-flex justify-content-center">
+        <div class="input-area">
+            <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" autofocus placeholder="Ask something..."
+                style="outline: none;" />
+            <button *ngIf="userInput" (click)="sendMessage()">
+                <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button *ngIf="!userInput" (click)="startVoice()">
+                <mat-icon>mic</mat-icon>
+            </button>
+        </div>
     </div>
 
-
-
-    <div class="input-area">
-        <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" autofocus placeholder="Ask something..." style="outline: none;"/>
-        <button *ngIf="userInput" (click)="sendMessage()">
-            <mat-icon>arrow_upward</mat-icon>
-        </button>
-        <button *ngIf="!userInput" (click)="startVoice()">
-            <mat-icon>mic</mat-icon>
-        </button>
-    </div>
 </div>
