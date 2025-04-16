@@ -220,6 +220,15 @@ export class ChatComponent implements OnInit {
     }
   }
 
+  stopVoice() {
+    if (this.recognition) {
+      this.recognition.stop();
+      this.isListening = false;
+      this.cdr.detectChanges();
+    }
+  }
+  
+
   // toggleSpeakReplies() {
   //   this.speakReplies = !this.speakReplies;
   //   this.cdr.detectChanges();
