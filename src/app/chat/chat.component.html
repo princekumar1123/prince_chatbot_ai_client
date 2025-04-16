@@ -90,7 +90,7 @@
     <div class="input-wrapper">
         <div class="input-area">
             <input [(ngModel)]="userInput" [disabled]="!userInput && isListening" (keyup.enter)="sendMessage()"
-                autofocus placeholder="Ask something..." />
+                autofocus placeholder="Ask anything..." />
             <button *ngIf="userInput" (click)="sendMessage()">
                 <mat-icon>arrow_upward</mat-icon>
             </button>
