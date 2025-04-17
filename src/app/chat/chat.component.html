@@ -1,78 +1,3 @@
-<!-- <div class="chat-container">
-    <div class="header">Prince ChatbotAI</div>
-
-    <div class="messages" #scrollMe>
-        <div *ngFor="let msg of chatHistory" [ngClass]="msg.type">
-            <markdown *ngIf="msg.type === 'bot'" [data]="msg.text"></markdown>
-            <div *ngIf="msg.type === 'user'" class="msg">{{ msg.text }}</div>
-        </div>
-    </div>
-    <button type="button" (click)="startVoice()" class="mic-button">
-        <mat-icon>mic</mat-icon>
-    </button>
-
-    <div class="input-area">
-        <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" autofocus placeholder="Ask something..." />
-        <button [disabled]="!userInput" (click)="sendMessage()"><mat-icon>arrow_upward</mat-icon></button>
-    </div>
-</div> -->
-
-
-
-<!-- <div class="chat-container">
-    <div class="header">Prince ChatbotAI</div>
-  
-    <div class="messages" #scrollMe>
-      <div *ngFor="let msg of chatHistory" [ngClass]="msg.type">
-        <markdown *ngIf="msg.type === 'bot'" [data]="msg.text"></markdown>
-        <div *ngIf="msg.type === 'user'" class="msg">{{ msg.text }}</div>
-      </div>
-    </div>
-  
-    <div *ngIf="isListening" class="listening-indicator">
-      <mat-icon class="pulse-icon">graphic_eq</mat-icon>
-      <span>Listening...</span>
-    </div>
-  
-    <button type="button" (click)="startVoice()" class="mic-button">
-      <mat-icon>mic</mat-icon>
-    </button>
-  
-    <div class="input-area">
-      <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" autofocus placeholder="Ask something..." />
-      <button [disabled]="!userInput" (click)="sendMessage()">
-        <mat-icon>arrow_upward</mat-icon>
-      </button>
-    </div>
-  </div>
-   -->
-
-
-
-<!-- <div class="chat-container">
-    <div class="header">
-        Prince ChatbotAI
-    </div>
-    <div class="messages" #scrollMe>
-        <div *ngFor="let msg of chatHistory" [ngClass]="msg.type">
-            <markdown *ngIf="msg.type === 'bot'" [data]="msg.text"></markdown>
-            <div *ngIf="msg.type === 'user'" class="msg">{{ msg.text }}</div>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="input-area">
-            <input [(ngModel)]="userInput" (keyup.enter)="sendMessage()" autofocus placeholder="Ask something..."
-                style="outline: none;" />
-            <button *ngIf="userInput" (click)="sendMessage()">
-                <mat-icon>arrow_upward</mat-icon>
-            </button>
-            <button *ngIf="!userInput" (click)="startVoice()">
-                <mat-icon>mic</mat-icon>
-            </button>
-        </div>
-    </div>
-</div> -->
-
 <div class="chat-container">
     <div class="header">
         Prince ChatbotAI
@@ -87,18 +12,35 @@
         <mat-icon class="pulse-icon">graphic_eq</mat-icon>
         <span>Listening...</span>
     </div>
+    <div *ngIf="isFullyScrollable" class="d-flex justify-content-center" style="cursor: pointer;">
+        <mat-icon (click)="scrollBottom()">arrow_downward</mat-icon>
+    </div>
     <div class="input-wrapper">
         <div class="input-area">
             <input [(ngModel)]="userInput" [disabled]="!userInput && isListening" (keyup.enter)="sendMessage()"
                 autofocus placeholder="Ask anything..." />
-            <button *ngIf="userInput" (click)="sendMessage()">
-                <mat-icon>arrow_upward</mat-icon>
+            <button *ngIf="userInput " (click)="sendMessage()" [disabled]="isSending">
+                <mat-icon *ngIf="!isSending">arrow_upward</mat-icon>
+                <mat-progress-spinner style="color: white;" *ngIf="isSending" diameter="20" mode="indeterminate"
+                    color="primary" strokeWidth="3">
+                </mat-progress-spinner>
             </button>
-            <button *ngIf="!userInput && !isListening" (click)="startVoice()">
-                <mat-icon>mic</mat-icon>
+            <button *ngIf="!userInput && isSending " (click)="cancelMessage()">
+                <mat-icon *ngIf="isSending">stop</mat-icon>
             </button>
-            <button *ngIf="!userInput && isListening" (click)="stopVoice()" style="background-color: red;">
-                <mat-icon>mic_off</mat-icon>
+            <button *ngIf="!userInput && !isListening && !isSending" (click)="startVoice()"
+                [disabled]="isStartingVoice">
+                <mat-icon *ngIf="!isStartingVoice">mic</mat-icon>
+                <mat-progress-spinner style="color: white;" *ngIf="isStartingVoice" diameter="20" mode="indeterminate"
+                    strokeWidth="3">
+                </mat-progress-spinner>
+            </button>
+            <button *ngIf="!userInput && isListening" (click)="stopVoice()" [disabled]="isStoppingVoice"
+                style="background-color: red;">
+                <mat-icon *ngIf="!isStoppingVoice">mic_off</mat-icon>
+                <mat-progress-spinner style="color: white;" *ngIf="isStoppingVoice" diameter="20" mode="indeterminate"
+                    strokeWidth="3">
+                </mat-progress-spinner>
             </button>
         </div>
     </div>

@@ -2,7 +2,14 @@
 // body{
 //     font-family: 'Dancing Script', cursive;
 // }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; display: flex; justify-content: center; align-items: center; 
-     background: linear-gradient(253.65deg, rgb(240, 240, 255) 0%, rgb(255, 255, 255) 68.52%);
-    }
+html,
+body {
+     height: 100%;
+     margin: 0;
+     font-family: Roboto, "Helvetica Neue", sans-serif;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: #ffffff;
+     background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(0, 178, 255, 1) 100%);
+}

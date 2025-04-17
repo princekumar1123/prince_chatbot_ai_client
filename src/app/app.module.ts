@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MarkdownModule } from 'ngx-markdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {MatIconModule} from '@angular/material/icon'
     FormsModule, HttpClientModule,
     MarkdownModule.forRoot(),
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
